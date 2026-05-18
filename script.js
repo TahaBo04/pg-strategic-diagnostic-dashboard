@@ -300,6 +300,9 @@ function createCharts() {
   const commonOptions = {
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+      padding: { top: 8, right: 8, bottom: 0, left: 0 },
+    },
     plugins: {
       legend: { display: false },
       tooltip: {
@@ -310,16 +313,23 @@ function createCharts() {
       },
     },
     scales: {
-      x: { grid: { display: false }, ticks: { color: muted } },
-      y: { grid: { color: "rgba(95, 107, 122, 0.16)" }, ticks: { color: muted } },
+      x: {
+        grid: { display: false },
+        ticks: { color: muted, font: { size: 12 } },
+      },
+      y: {
+        beginAtZero: true,
+        grid: { color: "rgba(95, 107, 122, 0.16)" },
+        ticks: { color: muted, font: { size: 12 }, maxTicksLimit: 5 },
+      },
     },
   };
 
   const charts = [
-    { id: "revenueChart", label: "Md $", data: [80.2, 82.0, 84.0], type: "bar" },
-    { id: "netIncomeChart", label: "Md $", data: [14.7, 14.7, 14.9], type: "bar" },
-    { id: "equityChart", label: "Md $", data: [47.3, 46.5, 50.3], type: "line" },
-    { id: "marginChart", label: "%", data: [18.3, 17.9, 17.7], type: "line" },
+    { id: "revenueChart", label: "Md $", data: [80.2, 82.0, 84.0], type: "bar", suggestedMax: 90 },
+    { id: "netIncomeChart", label: "Md $", data: [14.7, 14.7, 14.9], type: "bar", suggestedMax: 18 },
+    { id: "equityChart", label: "Md $", data: [47.3, 46.5, 50.3], type: "line", suggestedMax: 55 },
+    { id: "marginChart", label: "%", data: [18.3, 17.9, 17.7], type: "line", suggestedMax: 22 },
   ];
 
   charts.forEach((chart) => {
@@ -337,6 +347,9 @@ function createCharts() {
             backgroundColor: chart.type === "bar" ? [pgBlue, pgBlue, pgGold] : "rgba(0, 48, 135, 0.12)",
             borderColor: chart.type === "line" ? pgBlue : pgBlue,
             borderWidth: 3,
+            barThickness: chart.type === "bar" ? 42 : undefined,
+            maxBarThickness: chart.type === "bar" ? 48 : undefined,
+            categoryPercentage: chart.type === "bar" ? 0.55 : undefined,
             pointBackgroundColor: pgGold,
             pointBorderColor: "#FFFFFF",
             pointBorderWidth: 2,
@@ -345,7 +358,16 @@ function createCharts() {
           },
         ],
       },
-      options: commonOptions,
+      options: {
+        ...commonOptions,
+        scales: {
+          ...commonOptions.scales,
+          y: {
+            ...commonOptions.scales.y,
+            suggestedMax: chart.suggestedMax,
+          },
+        },
+      },
     });
   });
 }
