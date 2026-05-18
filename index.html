@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P&amp;G Strategic Diagnostic Dashboard</title>
+    <meta
+      name="description"
+      content="Tableau de bord interactif en français pour l'analyse organisationnelle, stratégique et financière de Procter & Gamble."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+    <header class="hero" id="accueil">
+      <div class="hero__rail" aria-hidden="true"></div>
+      <div class="hero__content">
+        <div class="brand-lockup">
+          <div class="pg-logo" aria-label="Logo P&G">P&amp;G</div>
+          <div>
+            <p class="eyebrow">Dashboard complementaire</p>
+            <h1>P&amp;G Strategic Diagnostic Dashboard</h1>
+            <p class="hero__subtitle">Analyse organisationnelle, stratégique et financière</p>
+          </div>
+        </div>
+        <p class="hero__intro">
+          Tableau de bord interactif développé comme support complémentaire à la présentation
+          Procter &amp; Gamble - Analyse Organisationnelle &amp; Stratégique.
+        </p>
+        <nav class="top-nav" aria-label="Navigation principale">
+          <a href="#plan">Plan</a>
+          <a href="#finance">Finance</a>
+          <a href="#das">DAS &amp; FCS</a>
+          <a href="#diagnostic">Diagnostic</a>
+          <a href="#swot">SWOT</a>
+          <a href="#recommandations">Recommandations</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      <section class="section section--kpis" aria-labelledby="kpi-title">
+        <div class="section__inner">
+          <div class="section-heading section-heading--compact">
+            <span class="slide-label">01 / Vue générale</span>
+            <h2 id="kpi-title">Indicateurs clés 2024</h2>
+          </div>
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <span>Chiffre d'affaires 2024</span>
+              <strong>~84 Md $</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Résultat net 2024</span>
+              <strong>~14,9 Md $</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Marge nette</span>
+              <strong>~17 %</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Présence mondiale</span>
+              <strong>180+ pays</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Collaborateurs</span>
+              <strong>~107 000</strong>
+            </article>
+            <article class="kpi-card">
+              <span>Portefeuille</span>
+              <strong>~65 marques</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="plan" aria-labelledby="plan-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">02 / 20</span>
+            <h2 id="plan-title">Plan de la présentation</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="plan-grid">
+            <article class="plan-card">
+              <span class="roman">I</span>
+              <h3>Vue générale</h3>
+              <p>Identité, mission, présence mondiale.</p>
+            </article>
+            <article class="plan-card">
+              <span class="roman">II</span>
+              <h3>Finance</h3>
+              <p>Performance 2022-2024 et ratios clés.</p>
+            </article>
+            <article class="plan-card">
+              <span class="roman">III</span>
+              <h3>DAS &amp; FCS</h3>
+              <p>Segmentation stratégique et conditions de réussite.</p>
+            </article>
+            <article class="plan-card">
+              <span class="roman">IV</span>
+              <h3>Diagnostic stratégique</h3>
+              <p>Analyse interne, externe, chaîne de valeur et PESTEL.</p>
+            </article>
+            <article class="plan-card">
+              <span class="roman">V</span>
+              <h3>SWOT</h3>
+              <p>Synthèse des forces, faiblesses, opportunités et menaces.</p>
+            </article>
+            <article class="plan-card">
+              <span class="roman">VI</span>
+              <h3>Recommandations</h3>
+              <p>Priorités d'action et simulation multicritère.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="finance" aria-labelledby="finance-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">07-09 / Finance</span>
+            <h2 id="finance-title">Performance financière 2022-2024</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="chart-grid">
+            <article class="chart-card">
+              <h3>Chiffre d'affaires</h3>
+              <canvas id="revenueChart" aria-label="Chiffre d'affaires 2022 à 2024"></canvas>
+            </article>
+            <article class="chart-card">
+              <h3>Résultat net</h3>
+              <canvas id="netIncomeChart" aria-label="Résultat net 2022 à 2024"></canvas>
+            </article>
+            <article class="chart-card">
+              <h3>Capitaux propres</h3>
+              <canvas id="equityChart" aria-label="Capitaux propres 2022 à 2024"></canvas>
+            </article>
+            <article class="chart-card">
+              <h3>Marge nette</h3>
+              <canvas id="marginChart" aria-label="Marge nette 2022 à 2024"></canvas>
+            </article>
+          </div>
+          <aside class="interpretation">
+            <strong>Interprétation</strong>
+            <p>
+              P&amp;G présente une performance solide et stable. La croissance du chiffre
+              d'affaires reste modérée, ce qui traduit la maturité du groupe, tandis que la marge
+              nette demeure élevée.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="das" aria-labelledby="das-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">DAS / FCS</span>
+            <h2 id="das-title">Segmentation stratégique - DAS &amp; Facteurs Clés de Succès</h2>
+          </div>
+        </div>
+        <div class="section__inner das-layout">
+          <div class="das-list" id="dasList" aria-label="Domaines d'activité stratégique"></div>
+          <article class="detail-panel" id="dasDetail" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="section" id="diagnostic" aria-labelledby="diagnostic-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">Diagnostic interne / externe</span>
+            <h2 id="diagnostic-title">Diagnostic stratégique</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="diagnostic-grid">
+            <article class="panel-card">
+              <h3>Diagnostic interne</h3>
+              <ul>
+                <li>Ressources tangibles : usines, réseau de distribution, marques, brevets.</li>
+                <li>Ressources intangibles : réputation, savoir-faire R&amp;D, culture d'entreprise.</li>
+                <li>Compétences distinctives : innovation, marketing de masse, portefeuille.</li>
+                <li>Chaîne de valeur : R&amp;D -> Production -> Logistique -> Marketing -> Vente -> SAV.</li>
+              </ul>
+            </article>
+            <article class="panel-card">
+              <h3>Diagnostic externe</h3>
+              <ul>
+                <li>PESTEL : digitalisation, inflation, ESG, réglementation environnementale.</li>
+                <li>Concurrence : Unilever, Henkel, L'Oréal, Colgate.</li>
+                <li>Distributeurs : Walmart, Amazon.</li>
+                <li>Menaces : marques distributeurs, matières premières, comportements.</li>
+              </ul>
+            </article>
+          </div>
+
+          <article class="flow-card">
+            <h3>Chaîne de valeur</h3>
+            <div class="value-flow" aria-label="Chaîne de valeur de P&G">
+              <div><strong>R&amp;D</strong><span>innovation produit</span></div>
+              <div><strong>Production</strong><span>standardisation et qualité</span></div>
+              <div><strong>Logistique</strong><span>supply chain mondiale</span></div>
+              <div><strong>Marketing</strong><span>marques fortes</span></div>
+              <div><strong>Distribution</strong><span>180+ pays</span></div>
+              <div><strong>Service client</strong><span>fidélisation et feedback</span></div>
+            </div>
+          </article>
+
+          <article class="pestel-card">
+            <h3>PESTEL</h3>
+            <div class="pestel-grid">
+              <div><strong>Politique</strong><span>réglementations internationales</span></div>
+              <div><strong>Économique</strong><span>inflation et pouvoir d'achat</span></div>
+              <div><strong>Socioculturel</strong><span>nouvelles habitudes de consommation</span></div>
+              <div><strong>Technologique</strong><span>IA, data, e-commerce</span></div>
+              <div><strong>Écologique</strong><span>durabilité et emballages responsables</span></div>
+              <div><strong>Légal</strong><span>conformité, normes produits, publicité</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="swot" aria-labelledby="swot-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">16 / Matrice SWOT</span>
+            <h2 id="swot-title">Audit global - SWOT</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="swot-matrix" id="swotMatrix"></div>
+        </div>
+      </section>
+
+      <section class="section" id="bpr" aria-labelledby="bpr-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">14 / BPR</span>
+            <h2 id="bpr-title">Réingénierie des Processus - BPR</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="process-list">
+            <article class="process-row">
+              <span>01</span>
+              <h3>Recentrage du portefeuille de marques</h3>
+              <p>Concentrer les ressources sur les marques à fort potentiel mondial.</p>
+              <strong>Impact attendu : meilleure allocation du capital.</strong>
+            </article>
+            <article class="process-row">
+              <span>02</span>
+              <h3>Digitalisation de la supply chain</h3>
+              <p>Utiliser la data pour anticiper la demande et réduire les ruptures.</p>
+              <strong>Impact attendu : réactivité et réduction des coûts.</strong>
+            </article>
+            <article class="process-row">
+              <span>03</span>
+              <h3>Automatisation industrielle</h3>
+              <p>Standardiser les opérations critiques tout en améliorant la qualité.</p>
+              <strong>Impact attendu : productivité et fiabilité.</strong>
+            </article>
+            <article class="process-row">
+              <span>04</span>
+              <h3>IA en marketing &amp; R&amp;D</h3>
+              <p>Accélérer les tests consommateurs et personnaliser les campagnes.</p>
+              <strong>Impact attendu : innovation plus rapide.</strong>
+            </article>
+            <article class="process-row">
+              <span>05</span>
+              <h3>Simplification organisationnelle</h3>
+              <p>Clarifier les responsabilités dans la structure matricielle.</p>
+              <strong>Impact attendu : décisions plus rapides.</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="recommandations" aria-labelledby="reco-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">18 / Recommandations</span>
+            <h2 id="reco-title">Simulateur de priorisation stratégique</h2>
+          </div>
+        </div>
+        <div class="section__inner simulator-layout">
+          <div>
+            <p class="section-note">
+              Cet outil transforme le diagnostic stratégique en aide à la décision.
+            </p>
+            <div class="recommendation-list" id="recommendationList"></div>
+          </div>
+          <aside class="ranking-card">
+            <h3>Classement dynamique</h3>
+            <div id="rankingList"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="cours" aria-labelledby="course-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">Cours / Gestion d'Entreprise</span>
+            <h2 id="course-title">Lien avec le cours de Gestion d'Entreprise</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="course-grid">
+            <article><h3>Stratégie</h3><p>Orientation à long terme et choix des ressources.</p></article>
+            <article><h3>DAS</h3><p>Découpage de l'entreprise en activités homogènes.</p></article>
+            <article><h3>FCS</h3><p>Conditions de réussite sur chaque domaine d'activité.</p></article>
+            <article><h3>Diagnostic interne</h3><p>Ressources, compétences, chaîne de valeur.</p></article>
+            <article><h3>Diagnostic externe</h3><p>Opportunités, menaces, PESTEL, concurrence.</p></article>
+            <article><h3>BPR</h3><p>Amélioration radicale des processus.</p></article>
+            <article><h3>SWOT</h3><p>Synthèse des forces, faiblesses, opportunités et menaces.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section final-section" id="synthese" aria-labelledby="synthesis-title">
+        <div class="slide-header">
+          <div class="pg-logo pg-logo--small" aria-hidden="true">P&amp;G</div>
+          <div>
+            <span class="slide-label">19 / Synthèse finale</span>
+            <h2 id="synthesis-title">Synthèse finale</h2>
+          </div>
+        </div>
+        <div class="section__inner">
+          <div class="synthesis-grid">
+            <article><h3>Performance financière</h3><p>Rentabilité solide et croissance maîtrisée.</p></article>
+            <article><h3>Structure organisationnelle</h3><p>Puissante mais exposée à la complexité matricielle.</p></article>
+            <article><h3>Transformation digitale</h3><p>Levier majeur pour supply chain, marketing et R&amp;D.</p></article>
+            <article><h3>Responsabilité sociétale</h3><p>Enjeu stratégique autour de l'ESG et des emballages.</p></article>
+          </div>
+          <p class="final-quote">
+            P&amp;G est un modèle d'organisation mondiale efficace, mais son défi majeur est de
+            transformer sa taille en avantage sans tomber dans la rigidité.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Réalisé dans le cadre du module Gestion d'Entreprises 2025-2026 - P&amp;G Analyse Organisationnelle &amp; Stratégique</p>
+      <p>Dashboard complémentaire à la présentation Procter &amp; Gamble</p>
+    </footer>
+  </body>
+</html>
